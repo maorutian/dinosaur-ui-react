@@ -70,3 +70,59 @@ $link-color: $primary !default;
 $link-decoration: none !default;
 $link-hover-color: darken($link-color, 15%) !default;
 $link-hover-decoration: underline !default;
+
+//Spacing
+$spacer: 1rem !default;
+
+//_reboot(normalize) variables
+//Body
+$body-bg: $white !default;
+$body-color: $gray-900 !default;
+$body-text-align: null !default;
+
+//Content grouping: hr
+$hr-margin-y: $spacer !default;
+$hr-color: inherit !default;
+$hr-height: 1px !default;
+$hr-opacity: .25 !default;
+
+//Typography: %Heading `<h1>`-`<h6>`
+$headings-margin-bottom: $spacer / 2 !default;
+$headings-font-family: null !default;
+$headings-font-style: null !default;
+$headings-font-weight: 500 !default;
+$headings-line-height: 1.2 !default;
+$headings-color: null !default;
+
+// Paragraphs
+//the top margin on `<p>`s
+$paragraph-margin-bottom: 1rem !default;
+
+//Abbreviations: dt
+$dt-font-weight: $font-weight-bold !default;
+
+//Abbreviations: small (the correct font size in all browsers)
+$small-font-size: .875em !default;
+
+//`sub` and `sup` elements
+$sub-sup-font-size: .75em !default;
+
+// Code
+$code-font-size: $small-font-size !default;
+$code-color: $pink !default;
+$pre-color: null !default;
+
+//caption color (Prevent double borders)
+$text-muted: $gray-600 !default;
+
+// options
+$enable-pointer-cursor-for-buttons: true !default;
+
+//legend
+$legend-margin-bottom: .5rem !default;
+$legend-font-size: 1.5rem !default;
+$legend-font-weight: null !default;
+
+//mark
+$mark-padding: .2em !default;
+$mark-bg: #fcf8e3 !default;
