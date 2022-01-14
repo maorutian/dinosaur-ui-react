@@ -6,9 +6,6 @@ const App: React.FC = () => {
     return (
         <div className="App">
             <header className="App-header">
-                <Button disabled> Hello </Button>
-                <Button btnType={ButtonType.Primary} size={ButtonSize.Large}> Button </Button>
-                <Button btnType={ButtonType.Link} href="https://www.google.com" disabled> Google Link </Button>
                 <h1>Hello world</h1>
                 <h2>Hello world</h2>
                 <h3>Hello world</h3>
@@ -16,17 +13,13 @@ const App: React.FC = () => {
                 <code>
                     let a = 1;
                 </code>
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
+                <hr/>
+                <Button> Button </Button>
+                <Button disabled> Disabled Button </Button>
+                <Button btnType={ButtonType.Primary} size={ButtonSize.Large}> Large Primary </Button>
+                <Button btnType={ButtonType.Danger} size={ButtonSize.Small}> Small Danger </Button>
+                <Button btnType={ButtonType.Link} href="https://www.google.com"> Google Link </Button>
+                <Button btnType={ButtonType.Link} href="https://www.google.com" disabled> Google Link </Button>
             </header>
         </div>
     );
