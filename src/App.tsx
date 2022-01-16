@@ -16,7 +16,8 @@ const App: React.FC = () => {
                 <hr/>
                 <Button> Button </Button>
                 <Button disabled> Disabled Button </Button>
-                <Button btnType={ButtonType.Primary} size={ButtonSize.Large}> Large Primary </Button>
+                <Button btnType={ButtonType.Primary} size={ButtonSize.Large} className={"custom"}> Large
+                    Primary </Button>
                 <Button btnType={ButtonType.Danger} size={ButtonSize.Small}> Small Danger </Button>
                 <Button btnType={ButtonType.Link} href="https://www.google.com"> Google Link </Button>
                 <Button btnType={ButtonType.Link} href="https://www.google.com" disabled> Google Link </Button>
