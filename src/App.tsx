@@ -20,14 +20,25 @@ const App: React.FC = () => {
                 <Button btnType={ButtonType.Link} href="https://www.google.com"> Google Link </Button>
                 <Button btnType={ButtonType.Link} href="https://www.google.com" disabled> Google Link </Button>
                 <hr/>
-                <Menu defaultIndex={0} >
+                <Menu>
+                    <MenuItem>
+                        Item 1
+                    </MenuItem>
+                    <MenuItem disabled>
+                        Item 2
+                    </MenuItem>
+                    <MenuItem>
+                        Item 3
+                    </MenuItem>
+                </Menu>
+                <Menu defaultIndex={1} mode={"vertical"}>
                     <MenuItem>
                         Item 1
                     </MenuItem>
                     <MenuItem>
                         Item 2
                     </MenuItem>
-                    <MenuItem>
+                    <MenuItem disabled>
                         Item 3
                     </MenuItem>
                 </Menu>
