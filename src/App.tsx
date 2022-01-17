@@ -1,5 +1,7 @@
 import React from 'react';
 import Button, {ButtonType, ButtonSize} from './components/Button/button';
+import Menu from './components/Menu/menu';
+import MenuItem from './components/Menu/menuItem';
 
 
 const App: React.FC = () => {
@@ -10,10 +12,6 @@ const App: React.FC = () => {
                 <h2>Hello world</h2>
                 <h3>Hello world</h3>
                 <hr/>
-                <code>
-                    let a = 1;
-                </code>
-                <hr/>
                 <Button> Button </Button>
                 <Button disabled> Disabled Button </Button>
                 <Button btnType={ButtonType.Primary} size={ButtonSize.Large} className={"custom"}> Large
@@ -21,6 +19,18 @@ const App: React.FC = () => {
                 <Button btnType={ButtonType.Danger} size={ButtonSize.Small}> Small Danger </Button>
                 <Button btnType={ButtonType.Link} href="https://www.google.com"> Google Link </Button>
                 <Button btnType={ButtonType.Link} href="https://www.google.com" disabled> Google Link </Button>
+                <hr/>
+                <Menu defaultIndex={0} >
+                    <MenuItem>
+                        Item 1
+                    </MenuItem>
+                    <MenuItem>
+                        Item 2
+                    </MenuItem>
+                    <MenuItem>
+                        Item 3
+                    </MenuItem>
+                </Menu>
             </header>
         </div>
     );
