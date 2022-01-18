@@ -5,7 +5,7 @@ import {MenuItemProps} from './menuItem';
 type MenuMode = 'horizontal' | 'vertical';
 type SelectCallback = (selectedIndex: number) => void;
 
-interface MenuProps {
+export interface MenuProps {
     className?: string;
     defaultIndex?: number;
     mode?: MenuMode;
@@ -54,7 +54,7 @@ const Menu: React.FC<MenuProps> = (props) => {
     };
 
     return (
-        <ul className={classes} style={style}>
+        <ul className={classes} style={style} data-testid="test-menu">
             <MenuContext.Provider value={passedContext}>
                 {renderChildren()}
             </MenuContext.Provider>
