@@ -23,7 +23,8 @@ export const MenuContext = createContext<IMenuContext>({index: 0});
 const Menu: React.FC<MenuProps> = (props) => {
     const {children, className, defaultIndex, mode, style, onSelect} = props;
     const classes = classNames('dinosaur-menu', className, {
-        'menu-vertical': mode === 'vertical'
+        'menu-vertical': mode === 'vertical',
+        'menu-horizontal': mode !== 'vertical',
     });
 
     //highlight active/selected menu item
@@ -39,12 +40,12 @@ const Menu: React.FC<MenuProps> = (props) => {
         onSelect: handleClick,
     }
 
-    //check: children of Menu must be MenuItem
+    //check: children of Menu must be MenuItem or SubMenu
     const renderChildren = () => {
         return React.Children.map(children, (child, index) => {
             const childElement = child as React.FunctionComponentElement<MenuItemProps>;
             const {displayName} = childElement.type;
-            if (displayName === 'MenuItem') {
+            if (displayName === 'MenuItem' || displayName === 'SubMenu') {
                 //add index to each child
                 return React.cloneElement(childElement, {index});
             } else {

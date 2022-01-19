@@ -2,6 +2,7 @@ import React from 'react';
 import Button, {ButtonType, ButtonSize} from './components/Button/button';
 import Menu from './components/Menu/menu';
 import MenuItem from './components/Menu/menuItem';
+import SubMenu from './components/Menu/subMenu';
 
 
 const App: React.FC = () => {
@@ -22,14 +23,22 @@ const App: React.FC = () => {
                 <hr/>
                 <Menu>
                     <MenuItem>
-                        Item 1
+                        Default
                     </MenuItem>
                     <MenuItem disabled>
-                        Item 2
+                        Disabled
                     </MenuItem>
                     <MenuItem>
-                        Item 3
+                        Item
                     </MenuItem>
+                    <SubMenu title={"SubMenu"}>
+                        <MenuItem>
+                            Dropdown 1
+                        </MenuItem>
+                        <MenuItem>
+                            Dropdown 2
+                        </MenuItem>
+                    </SubMenu>
                 </Menu>
                 <Menu defaultIndex={1} mode={"vertical"}>
                     <MenuItem>
@@ -41,6 +50,14 @@ const App: React.FC = () => {
                     <MenuItem disabled>
                         Item 3
                     </MenuItem>
+                    <SubMenu title={"SubMenu"}>
+                        <MenuItem>
+                            Dropdown 1
+                        </MenuItem>
+                        <MenuItem>
+                            Dropdown 2
+                        </MenuItem>
+                    </SubMenu>
                 </Menu>
             </header>
         </div>
