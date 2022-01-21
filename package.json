@@ -18,7 +18,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "husky install"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -36,8 +37,11 @@
     ]
   },
   "devDependencies": {
-    "sass": "^1.47.0",
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.0.0",
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2"
+    "@testing-library/react": "^9.3.2",
+    "husky": "^7.0.4",
+    "sass": "^1.47.0"
   }
 }
