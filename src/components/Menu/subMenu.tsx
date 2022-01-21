@@ -5,22 +5,27 @@ import {MenuItemProps} from './menuItem';
 
 export interface SubMenuProps {
     className?: string;
-    index?: number;
+    index?: string;
     title: string;
 }
 
 const SubMenu: React.FC<SubMenuProps> = (props) => {
-    const [menuOpen, setOpen] = useState(false);
     const {children, className, index, title} = props;
     const context = useContext(MenuContext);
+    //highlight submenu
     const classes = classNames('menu-item submenu-item', className, {
-        //highlight submenu
         'is-active': context.index === index
     });
+
+    //open subMenu when defaultOpenSubMenus is passed (vertical mode)
+    const openedSubMenus = context.defaultOpenSubMenus as Array<string>;
+    const isOpen = (index && context.mode === 'vertical') ? openedSubMenus.includes(index) : false;
+    const [menuOpen, setOpen] = useState(isOpen);
+    //open/close subMenu div
     const subMenuClasses = classNames('dinosaur-submenu', {
-        //open/close subMenu div
         'menu-opened': menuOpen
     })
+
     //open/close subMenu when mouse click for vertical mode
     const handleClick = (e: React.MouseEvent) => {
         e.preventDefault();
@@ -42,12 +47,14 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
         onMouseLeave: (e: React.MouseEvent) => handleMouse(e, false)
     } : {};
 
+
     //check: children of SubMenu must be MenuItem
     const renderChildren = () => {
-        const childrenComponent = React.Children.map(children, (child, index) => {
+        const childrenComponent = React.Children.map(children, (child, i) => {
             const childElement = child as FunctionComponentElement<MenuItemProps>
             if (childElement.type.displayName === 'MenuItem') {
-                return childElement;
+                //add index to each menuItem in SubMenu "0-0","0-1","0-2"
+                return React.cloneElement(childElement, {index: `${index}-${i}`});
             } else {
                 console.error("Warning: SubMenu has a child which is not a MenuItem component");
             }
@@ -60,8 +67,8 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     };
 
     return (
-        <li key={index} className={classes} {...clickEvents} {...hoverEvents}>
-            <div className="submenu-title">
+        <li key={index} className={classes}  {...hoverEvents}>
+            <div className="submenu-title" {...clickEvents}>
                 {title}
             </div>
             {renderChildren()}

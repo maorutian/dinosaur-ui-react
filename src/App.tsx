@@ -21,7 +21,7 @@ const App: React.FC = () => {
                 <Button btnType={ButtonType.Link} href="https://www.google.com"> Google Link </Button>
                 <Button btnType={ButtonType.Link} href="https://www.google.com" disabled> Google Link </Button>
                 <hr/>
-                <Menu>
+                <Menu onSelect={index => alert(index)}>
                     <MenuItem>
                         Default
                     </MenuItem>
@@ -40,7 +40,11 @@ const App: React.FC = () => {
                         </MenuItem>
                     </SubMenu>
                 </Menu>
-                <Menu defaultIndex={1} mode={"vertical"}>
+                <Menu
+                    defaultIndex={"1"}
+                    mode={"vertical"}
+                    onSelect={index => alert(index)}
+                    defaultOpenSubMenus={['3']}>
                     <MenuItem>
                         Item 1
                     </MenuItem>
