@@ -14,7 +14,7 @@ const App: React.FC = () => {
     return (
         <div className="App">
             <header className="App-header">
-                <Icon icon="arrow-down" theme="danger" size="10x"/>
+                <Icon icon="arrow-down" theme="primary" size="10x"/>
                 <h1>Hello world</h1>
                 <h2>Hello world</h2>
                 <h3>Hello world</h3>
