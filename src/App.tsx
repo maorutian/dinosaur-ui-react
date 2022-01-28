@@ -5,7 +5,6 @@ import Button, {ButtonType, ButtonSize} from './components/Button/button';
 import Menu from './components/Menu/menu';
 import MenuItem from './components/Menu/menuItem';
 import SubMenu from './components/Menu/subMenu';
-import Icon from './components/Icon/icon';
 
 //fontawesome: Pre-registering icon definitions
 library.add(fas);
@@ -14,7 +13,6 @@ const App: React.FC = () => {
     return (
         <div className="App">
             <header className="App-header">
-                <Icon icon="arrow-down" theme="primary" size="10x"/>
                 <h1>Hello world</h1>
                 <h2>Hello world</h2>
                 <h3>Hello world</h3>
