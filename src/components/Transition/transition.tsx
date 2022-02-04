@@ -6,6 +6,9 @@ type AnimationName = 'zoom-in-top' | 'zoom-in-left' | 'zoom-in-bottom' | 'zoom-i
 
 type TransitionProps = CSSTransitionProps & {
     animation?: AnimationName,
+    //if a children's css has transition, the transition in Transition hook will be override
+    //we use a div to wrap the children, the transition in Transition is applied in the div
+    wrapper? : boolean,
 };
 
 const Transition: React.FC<TransitionProps> = (props) => {
@@ -13,6 +16,7 @@ const Transition: React.FC<TransitionProps> = (props) => {
         children,
         classNames,
         animation,
+        wrapper,
         ...restProps
     } = props;
     return (
@@ -20,7 +24,7 @@ const Transition: React.FC<TransitionProps> = (props) => {
             classNames={classNames ? classNames : animation}
             {...restProps}
         >
-            {children}
+            {wrapper ? <div>{children}</div> : children}
         </CSSTransition>
     )
 };
