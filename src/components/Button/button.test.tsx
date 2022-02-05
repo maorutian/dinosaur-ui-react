@@ -1,6 +1,6 @@
 import React from 'react'
 import {render, fireEvent} from '@testing-library/react'
-import Button, {ButtonProps, ButtonSize, ButtonType} from './button'
+import Button, {ButtonProps} from './button'
 
 //test default
 //<Button>Button</Button>
@@ -9,17 +9,17 @@ const defaultProps = {
 }
 
 //test type/size/custom classname
-//<Button btnType={ButtonType.Primary} size={ButtonSize.Large} className={custom}>Button</Button>
+//<Button btnType='primary' size='lg' className={custom}>Button</Button>
 const testProps: ButtonProps = {
-    btnType: ButtonType.Primary,
-    size: ButtonSize.Large,
+    btnType: 'primary',
+    size: 'lg',
     className: 'custom'
 }
 
 //test link button
-//<Button btnType={ButtonType.Link} href="https://www.google.com">Link</Button>
-const linkProps = {
-    btnType: ButtonType.Link,
+//<Button btnType='link' href="https://www.google.com">Link</Button>
+const linkProps: ButtonProps = {
+    btnType: 'link',
     href: "https://google.com"
 }
 
