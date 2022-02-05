@@ -1,15 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {fas} from '@fortawesome/free-solid-svg-icons';
-import Button, {ButtonType, ButtonSize} from './components/Button/button';
+import Button from './components/Button/button';
 import Menu from './components/Menu/menu';
 import MenuItem from './components/Menu/menuItem';
 import SubMenu from './components/Menu/subMenu';
+import Transition from './components/Transition/transition';
 
 //fontawesome: Pre-registering icon definitions
 library.add(fas);
 
 const App: React.FC = () => {
+    const [show, setShow] = useState(false);
     return (
         <div className="App">
             <header className="App-header">
@@ -19,11 +21,11 @@ const App: React.FC = () => {
                 <hr/>
                 <Button> Button </Button>
                 <Button disabled> Disabled Button </Button>
-                <Button btnType={ButtonType.Primary} size={ButtonSize.Large} className={"custom"}> Large
+                <Button btnType='primary' size='lg' className={"custom"}> Large
                     Primary </Button>
-                <Button btnType={ButtonType.Danger} size={ButtonSize.Small}> Small Danger </Button>
-                <Button btnType={ButtonType.Link} href="https://www.google.com"> Google Link </Button>
-                <Button btnType={ButtonType.Link} href="https://www.google.com" disabled> Google Link </Button>
+                <Button btnType='danger' size='sm'> Small Danger </Button>
+                <Button btnType='link' href="https://www.google.com"> Google Link </Button>
+                <Button btnType='link' href="https://www.google.com" disabled> Google Link </Button>
                 <hr/>
                 <Menu onSelect={index => alert(index)}>
                     <MenuItem>
@@ -67,6 +69,17 @@ const App: React.FC = () => {
                         </MenuItem>
                     </SubMenu>
                 </Menu>
+                <Button onClick={() => {
+                    setShow(!show)
+                }}> Animation </Button>
+
+                <Transition
+                    in={show}
+                    timeout={300}
+                    animation="zoom-in-left"
+                >
+                    <p>Animation: zoom-in-left</p>
+                </Transition>
             </header>
         </div>
     );
