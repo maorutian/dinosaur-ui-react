@@ -6,6 +6,7 @@ import Menu from './components/Menu/menu';
 import MenuItem from './components/Menu/menuItem';
 import SubMenu from './components/Menu/subMenu';
 import Transition from './components/Transition/transition';
+import Input from './components/Input/input';
 
 //fontawesome: Pre-registering icon definitions
 library.add(fas);
@@ -69,6 +70,7 @@ const App: React.FC = () => {
                         </MenuItem>
                     </SubMenu>
                 </Menu>
+                <hr/>
                 <Button onClick={() => {
                     setShow(!show)
                 }}> Animation </Button>
@@ -80,6 +82,36 @@ const App: React.FC = () => {
                 >
                     <p>Animation: zoom-in-left</p>
                 </Transition>
+                <hr/>
+                <Input
+                    style={{width: '400px'}}
+                    placeholder="disabled input"
+                    disabled
+                />
+
+                <Input
+                    style={{width: '400px'}}
+                    placeholder="input with icon"
+                    icon="search"
+                />
+
+                <Input
+                    style={{width: '400px'}}
+                    defaultValue="large size"
+                    size="lg"
+                />
+                <Input
+                    style={{width: '400px'}}
+                    placeholder="small size"
+                    size="sm"
+                />
+                <Input
+                    style={{width: '400px'}}
+                    defaultValue="pend"
+                    prepend="https://"
+                    append=".com"
+                />
+
             </header>
         </div>
     );
