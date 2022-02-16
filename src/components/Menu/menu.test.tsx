@@ -3,6 +3,19 @@ import {render, RenderResult, fireEvent, wait} from '@testing-library/react';
 import Menu, {MenuProps} from './menu';
 import MenuItem from './menuItem';
 import SubMenu from './subMenu';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {fas} from '@fortawesome/free-solid-svg-icons';
+
+// in the real world, the CSSTransition component would take some time
+// before finishing the animation which would actually hide the message.
+// So we've mocked it out for our tests to make it happen instantly
+jest.mock('react-transition-group', () => {
+    return {
+        CSSTransition: (props: any) => {
+            return props.children
+        }
+    }
+})
 
 //test default (horizontal mode)
 const testProps: MenuProps = {
@@ -67,6 +80,7 @@ let wrapper: RenderResult,
 
 describe('test Menu, SubMenu and MenuItem component (horizontal model)', () => {
     beforeEach(() => {
+        library.add(fas);
         wrapper = render(generateMenu(testProps));
         //add css
         wrapper.container.append(createStyleFile());
