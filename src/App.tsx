@@ -7,6 +7,7 @@ import MenuItem from './components/Menu/menuItem';
 import SubMenu from './components/Menu/subMenu';
 import Transition from './components/Transition/transition';
 import Input from './components/Input/input';
+import Icon from './components/Icon/icon';
 
 //fontawesome: Pre-registering icon definitions
 library.add(fas);
@@ -70,6 +71,11 @@ const App: React.FC = () => {
                         </MenuItem>
                     </SubMenu>
                 </Menu>
+                <hr/>
+                <Icon icon='coffee'/>
+                <Icon icon='dove' theme='primary'/>
+                <Icon icon="skull-crossbones" theme='warning'/>
+                <Icon icon="exclamation" theme='danger'/>
                 <hr/>
                 <Button onClick={() => {
                     setShow(!show)
