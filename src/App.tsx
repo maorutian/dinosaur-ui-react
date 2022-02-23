@@ -8,12 +8,18 @@ import SubMenu from './components/Menu/subMenu';
 import Transition from './components/Transition/transition';
 import Input from './components/Input/input';
 import Icon from './components/Icon/icon';
+import {AutoComplete} from './components/AutoComplete/autoComplete';
 
 //fontawesome: Pre-registering icon definitions
 library.add(fas);
 
 const App: React.FC = () => {
     const [show, setShow] = useState(false);
+    const fruit = ['apple', 'banana', 'carrot', 'mango', 'orange',
+        'pear', 'watermelon', 'blueberry', 'strawberry', 'pineapple', 'honeydew', 'grape']
+    const handleFetch = (query: string) => {
+        return fruit.filter(name => name.includes(query))
+    }
     return (
         <div className="App">
             <header className="App-header">
@@ -117,7 +123,11 @@ const App: React.FC = () => {
                     prepend="https://"
                     append=".com"
                 />
-
+                <hr/>
+                <AutoComplete
+                    fetchSuggestions={handleFetch}
+                    onSelect={()=>console.log('selected')}
+                />
             </header>
         </div>
     );
