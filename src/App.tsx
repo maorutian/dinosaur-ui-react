@@ -8,18 +8,44 @@ import SubMenu from './components/Menu/subMenu';
 import Transition from './components/Transition/transition';
 import Input from './components/Input/input';
 import Icon from './components/Icon/icon';
-import {AutoComplete} from './components/AutoComplete/autoComplete';
+import {AutoComplete, DataSourceType} from './components/AutoComplete/autoComplete';
 
 //fontawesome: Pre-registering icon definitions
 library.add(fas);
 
+interface FruitProps {
+    value: string;
+    price: number;
+}
+
 const App: React.FC = () => {
     const [show, setShow] = useState(false);
-    const fruit = ['apple', 'banana', 'carrot', 'mango', 'orange',
-        'pear', 'watermelon', 'blueberry', 'strawberry', 'pineapple', 'honeydew', 'grape']
+    const fruit = [
+        {value: 'apple', price: 2.99},
+        {value: 'banana', price: 3.99},
+        {value: 'carrot', price: 4.99},
+        {value: 'mango', price: 9.99},
+        {value: 'orange', price: 2.00},
+        {value: 'pear', price: 1.99},
+        {value: 'watermelon', price: 2.39},
+        {value: 'blueberry', price: 2.99},
+        {value: 'strawberry', price: 2.09},
+        {value: 'pineapple', price: 2.39},
+        {value: 'honeydew', price: 2.99},
+        {value: 'grape', price: 2.91}];
+
     const handleFetch = (query: string) => {
-        return fruit.filter(name => name.includes(query))
+        return fruit.filter(fruit => fruit.value.includes(query));
     }
+    const renderOption = (item: DataSourceType<FruitProps>) => {
+        return (
+            <>
+                <h2>Name: {item.value}</h2>
+                <p>Number: {item.price}</p>
+            </>
+        )
+    }
+
     return (
         <div className="App">
             <header className="App-header">
@@ -126,7 +152,9 @@ const App: React.FC = () => {
                 <hr/>
                 <AutoComplete
                     fetchSuggestions={handleFetch}
-                    onSelect={()=>console.log('selected')}
+                    onSelect={() => console.log('selected')}
+                    renderOption={renderOption}
+
                 />
             </header>
         </div>
