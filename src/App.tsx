@@ -37,11 +37,12 @@ const App: React.FC = () => {
     const handleFetch = (query: string) => {
         return fruit.filter(fruit => fruit.value.includes(query));
     }
-    const renderOption = (item: DataSourceType<FruitProps>) => {
+    const renderOption = (item: DataSourceType) => {
+        const fruitItems = item as DataSourceType<FruitProps>;
         return (
             <>
-                <h2>Name: {item.value}</h2>
-                <p>Number: {item.price}</p>
+                <h2>Name: {fruitItems.value}</h2>
+                <p>Number: {fruitItems.price}</p>
             </>
         )
     }
